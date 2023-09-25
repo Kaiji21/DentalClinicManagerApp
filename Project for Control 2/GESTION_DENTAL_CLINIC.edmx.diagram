@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6bb9437a9bcb4000b91b5b162f183e0f" Name="Diagram1">
+        <EntityTypeShape EntityType="GESTION_DENTAL_CLINICModel.Appointment" Width="1.5" PointX="0.875" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GESTION_DENTAL_CLINICModel.AppointmentDetails" Width="1.5" PointX="3.875" PointY="3.625" />
+        <AssociationConnector Association="GESTION_DENTAL_CLINICModel.FK__Appointme__Appoi__7B5B524B" />
+        <EntityTypeShape EntityType="GESTION_DENTAL_CLINICModel.Treatment" Width="1.5" PointX="5.875" PointY="3.125" />
+        <AssociationConnector Association="GESTION_DENTAL_CLINICModel.FK__Appointme__Treat__7A672E12" />
+        <EntityTypeShape EntityType="GESTION_DENTAL_CLINICModel.Payment" Width="1.5" PointX="4" PointY="0.625" />
+        <AssociationConnector Association="GESTION_DENTAL_CLINICModel.FK__Payment__Appoint__17036CC0" />
+        <EntityTypeShape EntityType="GESTION_DENTAL_CLINICModel.Dentist" Width="1.5" PointX="0.5" PointY="4.375" />
+        <EntityTypeShape EntityType="GESTION_DENTAL_CLINICModel.Patient" Width="1.5" PointX="2.875" PointY="6" />
+        <AssociationConnector Association="GESTION_DENTAL_CLINICModel.FK__Appointme__Denti__2E1BDC42" />
+        <AssociationConnector Association="GESTION_DENTAL_CLINICModel.FK__Appointme__Patie__2D27B809" />
+        <EntityTypeShape EntityType="GESTION_DENTAL_CLINICModel.Clininc" Width="1.5" PointX="6.375" PointY="5.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

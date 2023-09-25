@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GESTION_DENTAL_CLINICModelStoreContainer" CdmEntityContainer="GESTION_DENTAL_CLINICEntities2">
+    <EntitySetMapping Name="Appointment">
+      <EntityTypeMapping TypeName="GESTION_DENTAL_CLINICModel.Appointment">
+        <MappingFragment StoreEntitySet="Appointment">
+          <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+          <ScalarProperty Name="AppointmentHour" ColumnName="AppointmentHour" />
+          <ScalarProperty Name="Remained" ColumnName="Remained" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="DentistID" ColumnName="DentistID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppointmentDetails">
+      <EntityTypeMapping TypeName="GESTION_DENTAL_CLINICModel.AppointmentDetails">
+        <MappingFragment StoreEntitySet="AppointmentDetails">
+          <ScalarProperty Name="TreatmentDetails" ColumnName="TreatmentDetails" />
+          <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+          <ScalarProperty Name="TreatmentID" ColumnName="TreatmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Treatment">
+      <EntityTypeMapping TypeName="GESTION_DENTAL_CLINICModel.Treatment">
+        <MappingFragment StoreEntitySet="Treatment">
+          <ScalarProperty Name="TreatmentPrice" ColumnName="TreatmentPrice" />
+          <ScalarProperty Name="TreatmentName" ColumnName="TreatmentName" />
+          <ScalarProperty Name="TreatmentID" ColumnName="TreatmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment">
+      <EntityTypeMapping TypeName="GESTION_DENTAL_CLINICModel.Payment">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+          <ScalarProperty Name="payment_Date" ColumnName="payment Date" />
+          <ScalarProperty Name="Total_Price" ColumnName="Total Price" />
+          <ScalarProperty Name="PAyementID" ColumnName="PAyementID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dentist">
+      <EntityTypeMapping TypeName="GESTION_DENTAL_CLINICModel.Dentist">
+        <MappingFragment StoreEntitySet="Dentist">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Created_at" ColumnName="Created at" />
+          <ScalarProperty Name="Date_start_work" ColumnName="Date start work" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Dateofbirth" ColumnName="Dateofbirth" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="DentistFullName" ColumnName="DentistFullName" />
+          <ScalarProperty Name="DentistID" ColumnName="DentistID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patient">
+      <EntityTypeMapping TypeName="GESTION_DENTAL_CLINICModel.Patient">
+        <MappingFragment StoreEntitySet="Patient">
+          <ScalarProperty Name="Created_at" ColumnName="Created at" />
+          <ScalarProperty Name="Allergies" ColumnName="Allergies" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PatientFullName" ColumnName="PatientFullName" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clininc">
+      <EntityTypeMapping TypeName="GESTION_DENTAL_CLINICModel.Clininc">
+        <MappingFragment StoreEntitySet="Clininc">
+          <ScalarProperty Name="Clininc_Address" ColumnName="Clininc Address" />
+          <ScalarProperty Name="principle" ColumnName="principle" />
+          <ScalarProperty Name="Annex" ColumnName="Annex" />
+          <ScalarProperty Name="Clininc_Description" ColumnName="Clininc Description" />
+          <ScalarProperty Name="Clininc_Name" ColumnName="Clininc Name" />
+          <ScalarProperty Name="Clinic_Image" ColumnName="Clinic Image" />
+          <ScalarProperty Name="Id_clinic" ColumnName="Id clinic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

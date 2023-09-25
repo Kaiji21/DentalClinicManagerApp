@@ -1,0 +1,97 @@
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\Project for Control 2.exe.config
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\Project for Control 2.exe
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\Project for Control 2.pdb
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.Properties.Resources.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project for Control 2.csproj.GenerateResource.cache
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project for Control 2.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project for Control 2.exe
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project for Control 2.pdb
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.Form3.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.Patients.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.LoginForm.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.Cos.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.Dentists.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.FrmAddupdatedentist.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.FrmAddupdatepatient.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.Appointmentcs.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.UserandClinic.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\EntityFramework.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\EntityFramework.xml
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project for Control 2.csproj.CopyComplete
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.Frmadddupdateappointment.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.FrmAppointmentsDetails.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.Frmaddupdateuser.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.ClinincForm.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.frmPayment.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.FrmAddupdateAPPdetails.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.Frmaddupdatepayement.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.frmDashbord.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\RdlCompile.cache
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\RdlCompile.compiled
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\EnvDTE.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\stdole.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\Microsoft.MSXML.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.Report.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\bin\Debug\QRCoder.dll
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project for Control 2.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.accountsettings.resources
+C:\Users\hp\source\repos\Project for Control 2\Project for Control 2\obj\Debug\Project_for_Control_2.FrmClose.resources

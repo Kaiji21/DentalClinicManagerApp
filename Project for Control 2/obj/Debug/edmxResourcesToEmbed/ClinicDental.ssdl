@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GESTION_DENTAL_CLINICModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Appointment">
+    <Key>
+      <PropertyRef Name="AppointmentID" />
+    </Key>
+    <Property Name="AppointmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppointmentDate" Type="date" Nullable="false" />
+    <Property Name="AppointmentHour" Type="date" Nullable="false" />
+    <Property Name="Remained" Type="varchar" MaxLength="10" />
+    <Property Name="PatientID" Type="int" />
+    <Property Name="DentistID" Type="int" />
+  </EntityType>
+  <EntityType Name="Dentist">
+    <Key>
+      <PropertyRef Name="DentistID" />
+    </Key>
+    <Property Name="DentistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DentistFullName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Adress" Type="varchar" MaxLength="50" />
+    <Property Name="Dateofbirth" Type="date" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="Date start work" Type="date" />
+    <Property Name="Created at" Type="datetime" />
+    <Property Name="Image" Type="image" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientFullName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Adress" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="Allergies" Type="varchar" MaxLength="100" />
+    <Property Name="Created at" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__Appointme__Denti__267ABA7A">
+    <End Role="Dentist" Type="Self.Dentist" Multiplicity="0..1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dentist">
+        <PropertyRef Name="DentistID" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="DentistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Appointme__Patie__25869641">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GESTION_DENTAL_CLINICModelStoreContainer">
+    <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dentist" EntityType="Self.Dentist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Appointme__Denti__267ABA7A" Association="Self.FK__Appointme__Denti__267ABA7A">
+      <End Role="Dentist" EntitySet="Dentist" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Appointme__Patie__25869641" Association="Self.FK__Appointme__Patie__25869641">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

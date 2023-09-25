@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GESTION_DENTAL_CLINICModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Appointment">
+    <Key>
+      <PropertyRef Name="AppointmentID" />
+    </Key>
+    <Property Name="AppointmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppointmentDate" Type="date" Nullable="false" />
+    <Property Name="AppointmentHour" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Remained" Type="varchar" MaxLength="10" />
+    <Property Name="PatientID" Type="int" />
+    <Property Name="DentistID" Type="int" />
+  </EntityType>
+  <EntityType Name="AppointmentDetails">
+    <Key>
+      <PropertyRef Name="TreatmentID" />
+      <PropertyRef Name="AppointmentID" />
+    </Key>
+    <Property Name="TreatmentID" Type="int" Nullable="false" />
+    <Property Name="AppointmentID" Type="int" Nullable="false" />
+    <Property Name="TreatmentDetails" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Clininc">
+    <Key>
+      <PropertyRef Name="Id clinic" />
+    </Key>
+    <Property Name="Id clinic" Type="int" Nullable="false" />
+    <Property Name="Clinic Image" Type="image" />
+    <Property Name="Clininc Name" Type="varchar" MaxLength="50" />
+    <Property Name="Clininc Description" Type="varchar" MaxLength="1000" />
+    <Property Name="Annex" Type="varchar" MaxLength="10" />
+    <Property Name="principle" Type="varchar" MaxLength="50" />
+    <Property Name="Clininc Address" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="Dentist">
+    <Key>
+      <PropertyRef Name="DentistID" />
+    </Key>
+    <Property Name="DentistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DentistFullName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Adress" Type="varchar" MaxLength="50" />
+    <Property Name="Dateofbirth" Type="date" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="Date start work" Type="date" />
+    <Property Name="Created at" Type="datetime" />
+    <Property Name="Image" Type="image" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientFullName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Adress" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="Allergies" Type="varchar" MaxLength="100" />
+    <Property Name="Created at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PAyementID" />
+    </Key>
+    <Property Name="PAyementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Total Price" Type="money" />
+    <Property Name="payment Date" Type="datetime" />
+    <Property Name="PaymentMethod" Type="varchar" MaxLength="50" />
+    <Property Name="AppointmentID" Type="int" />
+  </EntityType>
+  <EntityType Name="Treatment">
+    <Key>
+      <PropertyRef Name="TreatmentID" />
+    </Key>
+    <Property Name="TreatmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TreatmentName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TreatmentPrice" Type="money" />
+  </EntityType>
+  <Association Name="FK__Appointme__Appoi__31EC6D26">
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppointmentDetails" Type="Self.AppointmentDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Appointment">
+        <PropertyRef Name="AppointmentID" />
+      </Principal>
+      <Dependent Role="AppointmentDetails">
+        <PropertyRef Name="AppointmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Appointme__Denti__2E1BDC42">
+    <End Role="Dentist" Type="Self.Dentist" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dentist">
+        <PropertyRef Name="DentistID" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="DentistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Appointme__Patie__2D27B809">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Appointme__Treat__30F848ED">
+    <End Role="Treatment" Type="Self.Treatment" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppointmentDetails" Type="Self.AppointmentDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Treatment">
+        <PropertyRef Name="TreatmentID" />
+      </Principal>
+      <Dependent Role="AppointmentDetails">
+        <PropertyRef Name="TreatmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payment__Appoint__36B12243">
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Appointment">
+        <PropertyRef Name="AppointmentID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="AppointmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GESTION_DENTAL_CLINICModelStoreContainer">
+    <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppointmentDetails" EntityType="Self.AppointmentDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clininc" EntityType="Self.Clininc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dentist" EntityType="Self.Dentist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Treatment" EntityType="Self.Treatment" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Appointme__Appoi__31EC6D26" Association="Self.FK__Appointme__Appoi__31EC6D26">
+      <End Role="Appointment" EntitySet="Appointment" />
+      <End Role="AppointmentDetails" EntitySet="AppointmentDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Appointme__Denti__2E1BDC42" Association="Self.FK__Appointme__Denti__2E1BDC42">
+      <End Role="Dentist" EntitySet="Dentist" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Appointme__Patie__2D27B809" Association="Self.FK__Appointme__Patie__2D27B809">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Appointme__Treat__30F848ED" Association="Self.FK__Appointme__Treat__30F848ED">
+      <End Role="Treatment" EntitySet="Treatment" />
+      <End Role="AppointmentDetails" EntitySet="AppointmentDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payment__Appoint__36B12243" Association="Self.FK__Payment__Appoint__36B12243">
+      <End Role="Appointment" EntitySet="Appointment" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

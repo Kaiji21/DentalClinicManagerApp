@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GESTION_DENTAL_CLINICModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Appointment">
+    <Key>
+      <PropertyRef Name="AppointmentID" />
+    </Key>
+    <Property Name="AppointmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppointmentDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AppointmentHour" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Remained" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PatientID" Type="Int32" />
+    <Property Name="DentistID" Type="Int32" />
+    <NavigationProperty Name="Dentist" Relationship="Self.FK__Appointme__Denti__267ABA7A" FromRole="Appointment" ToRole="Dentist" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK__Appointme__Patie__25869641" FromRole="Appointment" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="Dentist">
+    <Key>
+      <PropertyRef Name="DentistID" />
+    </Key>
+    <Property Name="DentistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DentistFullName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Dateofbirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Date_start_work" Type="DateTime" Precision="0" />
+    <Property Name="Created_at" Type="DateTime" Precision="3" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Appointment" Relationship="Self.FK__Appointme__Denti__267ABA7A" FromRole="Dentist" ToRole="Appointment" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientFullName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Allergies" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Created_at" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Appointment" Relationship="Self.FK__Appointme__Patie__25869641" FromRole="Patient" ToRole="Appointment" />
+  </EntityType>
+  <Association Name="FK__Appointme__Denti__267ABA7A">
+    <End Role="Dentist" Type="Self.Dentist" Multiplicity="0..1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dentist">
+        <PropertyRef Name="DentistID" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="DentistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Appointme__Patie__25869641">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GESTION_DENTAL_CLINICEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Appointment" EntityType="Self.Appointment" />
+    <EntitySet Name="Dentist" EntityType="Self.Dentist" />
+    <EntitySet Name="Patient" EntityType="Self.Patient" />
+    <AssociationSet Name="FK__Appointme__Denti__267ABA7A" Association="Self.FK__Appointme__Denti__267ABA7A">
+      <End Role="Dentist" EntitySet="Dentist" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Appointme__Patie__25869641" Association="Self.FK__Appointme__Patie__25869641">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

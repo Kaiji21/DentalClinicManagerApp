@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GESTION_DENTAL_CLINICModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="AppointmentID" />
+          </Key>
+          <Property Name="AppointmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppointmentDate" Type="date" Nullable="false" />
+          <Property Name="AppointmentHour" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Remained" Type="varchar" MaxLength="10" />
+          <Property Name="PatientID" Type="int" />
+          <Property Name="DentistID" Type="int" />
+        </EntityType>
+        <EntityType Name="AppointmentDetails">
+          <Key>
+            <PropertyRef Name="TreatmentID" />
+            <PropertyRef Name="AppointmentID" />
+          </Key>
+          <Property Name="TreatmentID" Type="int" Nullable="false" />
+          <Property Name="AppointmentID" Type="int" Nullable="false" />
+          <Property Name="TreatmentDetails" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Clininc">
+          <Key>
+            <PropertyRef Name="Id clinic" />
+          </Key>
+          <Property Name="Id clinic" Type="int" Nullable="false" />
+          <Property Name="Clinic Image" Type="image" />
+          <Property Name="Clininc Name" Type="varchar" MaxLength="50" />
+          <Property Name="Clininc Description" Type="varchar" MaxLength="1000" />
+          <Property Name="Annex" Type="varchar" MaxLength="10" />
+          <Property Name="principle" Type="varchar" MaxLength="50" />
+          <Property Name="Clininc Address" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Dentist">
+          <Key>
+            <PropertyRef Name="DentistID" />
+          </Key>
+          <Property Name="DentistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DentistFullName" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Adress" Type="varchar" MaxLength="50" />
+          <Property Name="Dateofbirth" Type="date" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="Date start work" Type="date" />
+          <Property Name="Created at" Type="datetime" />
+          <Property Name="Image" Type="image" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientFullName" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Adress" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="Allergies" Type="varchar" MaxLength="100" />
+          <Property Name="Created at" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="PAyementID" />
+          </Key>
+          <Property Name="PAyementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Total Price" Type="money" />
+          <Property Name="payment Date" Type="datetime" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="50" />
+          <Property Name="AppointmentID" Type="int" />
+        </EntityType>
+        <EntityType Name="Treatment">
+          <Key>
+            <PropertyRef Name="TreatmentID" />
+          </Key>
+          <Property Name="TreatmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TreatmentName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TreatmentPrice" Type="money" />
+        </EntityType>
+        <Association Name="FK__Appointme__Appoi__31EC6D26">
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AppointmentDetails" Type="Self.AppointmentDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Appointment">
+              <PropertyRef Name="AppointmentID" />
+            </Principal>
+            <Dependent Role="AppointmentDetails">
+              <PropertyRef Name="AppointmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Appointme__Denti__2E1BDC42">
+          <End Role="Dentist" Type="Self.Dentist" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dentist">
+              <PropertyRef Name="DentistID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="DentistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Appointme__Patie__2D27B809">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Appointme__Treat__30F848ED">
+          <End Role="Treatment" Type="Self.Treatment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AppointmentDetails" Type="Self.AppointmentDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Treatment">
+              <PropertyRef Name="TreatmentID" />
+            </Principal>
+            <Dependent Role="AppointmentDetails">
+              <PropertyRef Name="TreatmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment__Appoint__36B12243">
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Appointment">
+              <PropertyRef Name="AppointmentID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="AppointmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GESTION_DENTAL_CLINICModelStoreContainer">
+          <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppointmentDetails" EntityType="Self.AppointmentDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clininc" EntityType="Self.Clininc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dentist" EntityType="Self.Dentist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Treatment" EntityType="Self.Treatment" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Appointme__Appoi__31EC6D26" Association="Self.FK__Appointme__Appoi__31EC6D26">
+            <End Role="Appointment" EntitySet="Appointment" />
+            <End Role="AppointmentDetails" EntitySet="AppointmentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Appointme__Denti__2E1BDC42" Association="Self.FK__Appointme__Denti__2E1BDC42">
+            <End Role="Dentist" EntitySet="Dentist" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Appointme__Patie__2D27B809" Association="Self.FK__Appointme__Patie__2D27B809">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Appointme__Treat__30F848ED" Association="Self.FK__Appointme__Treat__30F848ED">
+            <End Role="Treatment" EntitySet="Treatment" />
+            <End Role="AppointmentDetails" EntitySet="AppointmentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment__Appoint__36B12243" Association="Self.FK__Payment__Appoint__36B12243">
+            <End Role="Appointment" EntitySet="Appointment" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GESTION_DENTAL_CLINICModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="AppointmentID" />
+          </Key>
+          <Property Name="AppointmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppointmentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AppointmentHour" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Remained" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PatientID" Type="Int32" />
+          <Property Name="DentistID" Type="Int32" />
+          <NavigationProperty Name="AppointmentDetails" Relationship="GESTION_DENTAL_CLINICModel.FK__Appointme__Appoi__7B5B524B" FromRole="Appointment" ToRole="AppointmentDetails" />
+          <NavigationProperty Name="Payment" Relationship="GESTION_DENTAL_CLINICModel.FK__Payment__Appoint__17036CC0" FromRole="Appointment" ToRole="Payment" />
+          <NavigationProperty Name="Dentist" Relationship="GESTION_DENTAL_CLINICModel.FK__Appointme__Denti__2E1BDC42" FromRole="Appointment" ToRole="Dentist" />
+          <NavigationProperty Name="Patient" Relationship="GESTION_DENTAL_CLINICModel.FK__Appointme__Patie__2D27B809" FromRole="Appointment" ToRole="Patient" />
+        </EntityType>
+        <EntityContainer Name="GESTION_DENTAL_CLINICEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Appointment" EntityType="Self.Appointment" />
+          <EntitySet Name="AppointmentDetails" EntityType="GESTION_DENTAL_CLINICModel.AppointmentDetails" />
+          <AssociationSet Name="FK__Appointme__Appoi__7B5B524B" Association="GESTION_DENTAL_CLINICModel.FK__Appointme__Appoi__7B5B524B">
+            <End Role="Appointment" EntitySet="Appointment" />
+            <End Role="AppointmentDetails" EntitySet="AppointmentDetails" />
+          </AssociationSet>
+          <EntitySet Name="Treatment" EntityType="GESTION_DENTAL_CLINICModel.Treatment" />
+          <AssociationSet Name="FK__Appointme__Treat__7A672E12" Association="GESTION_DENTAL_CLINICModel.FK__Appointme__Treat__7A672E12">
+            <End Role="Treatment" EntitySet="Treatment" />
+            <End Role="AppointmentDetails" EntitySet="AppointmentDetails" />
+          </AssociationSet>
+          <EntitySet Name="Payment" EntityType="GESTION_DENTAL_CLINICModel.Payment" />
+          <AssociationSet Name="FK__Payment__Appoint__17036CC0" Association="GESTION_DENTAL_CLINICModel.FK__Payment__Appoint__17036CC0">
+            <End Role="Appointment" EntitySet="Appointment" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <EntitySet Name="Dentist" EntityType="GESTION_DENTAL_CLINICModel.Dentist" />
+          <EntitySet Name="Patient" EntityType="GESTION_DENTAL_CLINICModel.Patient" />
+          <AssociationSet Name="FK__Appointme__Denti__2E1BDC42" Association="GESTION_DENTAL_CLINICModel.FK__Appointme__Denti__2E1BDC42">
+            <End Role="Dentist" EntitySet="Dentist" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Appointme__Patie__2D27B809" Association="GESTION_DENTAL_CLINICModel.FK__Appointme__Patie__2D27B809">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <EntitySet Name="Clininc" EntityType="GESTION_DENTAL_CLINICModel.Clininc" />
+        </EntityContainer>
+        <EntityType Name="AppointmentDetails">
+          <Key>
+            <PropertyRef Name="TreatmentID" />
+            <PropertyRef Name="AppointmentID" />
+          </Key>
+          <Property Name="TreatmentID" Type="Int32" Nullable="false" />
+          <Property Name="AppointmentID" Type="Int32" Nullable="false" />
+          <Property Name="TreatmentDetails" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Appointment" Relationship="GESTION_DENTAL_CLINICModel.FK__Appointme__Appoi__7B5B524B" FromRole="AppointmentDetails" ToRole="Appointment" />
+          <NavigationProperty Name="Treatment" Relationship="GESTION_DENTAL_CLINICModel.FK__Appointme__Treat__7A672E12" FromRole="AppointmentDetails" ToRole="Treatment" />
+        </EntityType>
+        <Association Name="FK__Appointme__Appoi__7B5B524B">
+          <End Type="GESTION_DENTAL_CLINICModel.Appointment" Role="Appointment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GESTION_DENTAL_CLINICModel.AppointmentDetails" Role="AppointmentDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Appointment">
+              <PropertyRef Name="AppointmentID" />
+            </Principal>
+            <Dependent Role="AppointmentDetails">
+              <PropertyRef Name="AppointmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Treatment">
+          <Key>
+            <PropertyRef Name="TreatmentID" />
+          </Key>
+          <Property Name="TreatmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TreatmentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TreatmentPrice" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="AppointmentDetails" Relationship="GESTION_DENTAL_CLINICModel.FK__Appointme__Treat__7A672E12" FromRole="Treatment" ToRole="AppointmentDetails" />
+        </EntityType>
+        <Association Name="FK__Appointme__Treat__7A672E12">
+          <End Type="GESTION_DENTAL_CLINICModel.Treatment" Role="Treatment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GESTION_DENTAL_CLINICModel.AppointmentDetails" Role="AppointmentDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Treatment">
+              <PropertyRef Name="TreatmentID" />
+            </Principal>
+            <Dependent Role="AppointmentDetails">
+              <PropertyRef Name="TreatmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="PAyementID" />
+          </Key>
+          <Property Name="PAyementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Total_Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="payment_Date" Type="DateTime" Precision="3" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AppointmentID" Type="Int32" />
+          <NavigationProperty Name="Appointment" Relationship="GESTION_DENTAL_CLINICModel.FK__Payment__Appoint__17036CC0" FromRole="Payment" ToRole="Appointment" />
+        </EntityType>
+        <Association Name="FK__Payment__Appoint__17036CC0">
+          <End Type="GESTION_DENTAL_CLINICModel.Appointment" Role="Appointment" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GESTION_DENTAL_CLINICModel.Payment" Role="Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Appointment">
+              <PropertyRef Name="AppointmentID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="AppointmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Dentist">
+          <Key>
+            <PropertyRef Name="DentistID" />
+          </Key>
+          <Property Name="DentistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DentistFullName" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dateofbirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Date_start_work" Type="DateTime" Precision="0" />
+          <Property Name="Created_at" Type="DateTime" Precision="3" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Appointment" Relationship="GESTION_DENTAL_CLINICModel.FK__Appointme__Denti__2E1BDC42" FromRole="Dentist" ToRole="Appointment" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientFullName" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Allergies" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Created_at" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Appointment" Relationship="GESTION_DENTAL_CLINICModel.FK__Appointme__Patie__2D27B809" FromRole="Patient" ToRole="Appointment" />
+        </EntityType>
+        <Association Name="FK__Appointme__Denti__2E1BDC42">
+          <End Type="GESTION_DENTAL_CLINICModel.Dentist" Role="Dentist" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GESTION_DENTAL_CLINICModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dentist">
+              <PropertyRef Name="DentistID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="DentistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Appointme__Patie__2D27B809">
+          <End Type="GESTION_DENTAL_CLINICModel.Patient" Role="Patient" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GESTION_DENTAL_CLINICModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Clininc">
+          <Key>
+            <PropertyRef Name="Id_clinic" />
+          </Key>
+          <Property Name="Id_clinic" Type="Int32" Nullable="false" />
+          <Property Name="Clinic_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Clininc_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Clininc_Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Annex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="principle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Clininc_Address" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GESTION_DENTAL_CLINICModelStoreContainer" CdmEntityContainer="GESTION_DENTAL_CLINICEntities2">
+          <EntitySetMapping Name="Appointment">
+            <EntityTypeMapping TypeName="GESTION_DENTAL_CLINICModel.Appointment">
+              <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+                <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+                <ScalarProperty Name="AppointmentHour" ColumnName="AppointmentHour" />
+                <ScalarProperty Name="Remained" ColumnName="Remained" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="DentistID" ColumnName="DentistID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppointmentDetails">
+            <EntityTypeMapping TypeName="GESTION_DENTAL_CLINICModel.AppointmentDetails">
+              <MappingFragment StoreEntitySet="AppointmentDetails">
+                <ScalarProperty Name="TreatmentDetails" ColumnName="TreatmentDetails" />
+                <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+                <ScalarProperty Name="TreatmentID" ColumnName="TreatmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Treatment">
+            <EntityTypeMapping TypeName="GESTION_DENTAL_CLINICModel.Treatment">
+              <MappingFragment StoreEntitySet="Treatment">
+                <ScalarProperty Name="TreatmentPrice" ColumnName="TreatmentPrice" />
+                <ScalarProperty Name="TreatmentName" ColumnName="TreatmentName" />
+                <ScalarProperty Name="TreatmentID" ColumnName="TreatmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payment">
+            <EntityTypeMapping TypeName="GESTION_DENTAL_CLINICModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="payment_Date" ColumnName="payment Date" />
+                <ScalarProperty Name="Total_Price" ColumnName="Total Price" />
+                <ScalarProperty Name="PAyementID" ColumnName="PAyementID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dentist">
+            <EntityTypeMapping TypeName="GESTION_DENTAL_CLINICModel.Dentist">
+              <MappingFragment StoreEntitySet="Dentist">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Created_at" ColumnName="Created at" />
+                <ScalarProperty Name="Date_start_work" ColumnName="Date start work" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Dateofbirth" ColumnName="Dateofbirth" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="DentistFullName" ColumnName="DentistFullName" />
+                <ScalarProperty Name="DentistID" ColumnName="DentistID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient">
+            <EntityTypeMapping TypeName="GESTION_DENTAL_CLINICModel.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="Created_at" ColumnName="Created at" />
+                <ScalarProperty Name="Allergies" ColumnName="Allergies" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PatientFullName" ColumnName="PatientFullName" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clininc">
+            <EntityTypeMapping TypeName="GESTION_DENTAL_CLINICModel.Clininc">
+              <MappingFragment StoreEntitySet="Clininc">
+                <ScalarProperty Name="Clininc_Address" ColumnName="Clininc Address" />
+                <ScalarProperty Name="principle" ColumnName="principle" />
+                <ScalarProperty Name="Annex" ColumnName="Annex" />
+                <ScalarProperty Name="Clininc_Description" ColumnName="Clininc Description" />
+                <ScalarProperty Name="Clininc_Name" ColumnName="Clininc Name" />
+                <ScalarProperty Name="Clinic_Image" ColumnName="Clinic Image" />
+                <ScalarProperty Name="Id_clinic" ColumnName="Id clinic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
